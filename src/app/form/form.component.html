@@ -1,0 +1,80 @@
+<div class="container">
+    <h2>Thanks for purchasing an IOT Button!</h2>
+    <h4>Please submit the form below to register your button.</h4>
+    {{diagnostic}}
+    <form #form ="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="DeviceId">Device ID Number</label>
+        <input type="number" class="form-control" id="DeviceId" required pattern="^[1-9]+[0-9]*$"
+        [(ngModel)]="model.DeviceId" name="DeviceId" #DeviceId="ngModel">
+      </div>
+      <div [hidden]="DeviceId.valid || DeviceId.pristine"
+        class="alert alert-danger">
+        Device ID Number is required
+      </div>
+ 
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" required
+        [(ngModel)]="model.firstName" name="firstName" #first="ngModel">
+      </div>
+      <div [hidden]="first.valid || first.pristine"
+        class="alert alert-danger">
+        First Name is required
+      </div>
+ 
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" required
+        [(ngModel)]="model.lastName" name="lastName" #last="ngModel">
+      </div>
+      <div [hidden]="last.valid || last.pristine"
+        class="alert alert-danger">
+        Last Name is required
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" required
+        [(ngModel)]="model.address" name="address" #address="ngModel">
+      </div>
+      <div [hidden]="address.valid || address.pristine"
+        class="alert alert-danger">
+        Address is required
+      </div>
+ 
+      <div class="form-group">
+        <label for="familyMembers">Number of Family Members</label>
+        <input type="number" class="form-control" id="familyMembers" required pattern="^[1-9]+[0-9]*$"
+        [(ngModel)]="model.familyMembers" name="familyMembers" #family="ngModel">
+      </div>
+      <div [hidden]="family.valid || family.pristine"
+        class="alert alert-danger">
+        Number of Family Members is required
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!form.form.valid">Submit</button>
+ 
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You registered the following information:</h4>
+  <div class="row">
+    <div class="col-xs-3">Device Id</div>
+    <div class="col-xs-9  pull-left">{{ model.DeviceId }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9 pull-left">{{ model.firstName }} {{model.lastName}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Address</div>
+    <div class="col-xs-9 pull-left">{{ model.address }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Family Members</div>
+    <div class="col-xs-9 pull-left">{{ model.familyMembers }}</div>
+  </div>
+</div>
