@@ -3,8 +3,6 @@ import { Http, Response } from '@angular/http';
 
 import { UserRegistration, UserRegistrationContract } from './UserRegistration';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RegistrationService {
@@ -19,7 +17,7 @@ export class RegistrationService {
   }
 
   convertToContract (userRegistration: UserRegistration){
-  	const contract:UserRegistrationContract;
+  	const contract = new UserRegistrationContract();
   	contract.Email = userRegistration.Email;
   	contract.info.lastName = userRegistration.lastName;
   	contract.info.address = userRegistration.address;

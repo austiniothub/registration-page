@@ -8,17 +8,18 @@ import { RegistrationService } from '../registration.service';
   templateUrl: './form.component.html'
 })
 export class FormComponent {
- model: UserRegistration
+ model: UserRegistration;
+ submitted: boolean;
 
-  constructor(registrationService: RegistrationService) { }
+  constructor(private registrationService: RegistrationService) { }
 
   ngOnInit() {
-    model = new UserRegistration('john@gmail.com', 'John', 'Smith', '2400 Nueces St., Austin, TX 78705', 4, 8324449876);
-    submitted = false;
+    this.model = new UserRegistration('john@gmail.com', 'John', 'Smith', '2400 Nueces St., Austin, TX 78705', 4, 8324449876);
+    this.submitted = false;
   }
 
   onSubmit() { this.submitted = true;
-    this.registrationService.create(model);
+    this.registrationService.create(this.model);
    }
 
   // TODO: Remove this when we're done

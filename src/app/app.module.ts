@@ -7,18 +7,20 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './form/form.component';
 
+import { RegistrationService } from './registration.service'
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FormComponent,
-    HttpModule
+    FormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

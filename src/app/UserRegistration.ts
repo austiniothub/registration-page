@@ -11,7 +11,7 @@ export class UserRegistration {
 
 }
 
-export interface UserRegistrationContract{
+export class UserRegistrationContract{
 
 	Email: string;
 	info: 
