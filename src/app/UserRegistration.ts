@@ -1,7 +1,7 @@
 export class UserRegistration {
 
   constructor(
-    public email: string,
+    public Email: string,
     public firstName: string,
     public lastName: string,
     public address: string,
@@ -11,15 +11,14 @@ export class UserRegistration {
 
 }
 
-/*export Interface UserRegistrationContract{
+export interface UserRegistrationContract{
 
-	// email: string,
-	DeviceId: number,
+	Email: string;
 	info: 
 	{
-		firstName: string,
-		lastName: string,
-		address: string,
-		familyMembers: number
-	}
-*/
+		firstName: string;
+		lastName: string;
+		address: string;
+		familyMembers: number;
+	};
+}

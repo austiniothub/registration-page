@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserRegistration }    from '../UserRegistration';
-import { User } from '../user.model'
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html'
 })
 export class FormComponent {
-  model: userRegistration
+ model: UserRegistration
 
-  constructor(userRegistration: UserRegistration) { }
+  constructor(registrationService: RegistrationService) { }
 
   ngOnInit() {
     model = new UserRegistration('john@gmail.com', 'John', 'Smith', '2400 Nueces St., Austin, TX 78705', 4, 8324449876);
@@ -18,7 +18,7 @@ export class FormComponent {
   }
 
   onSubmit() { this.submitted = true;
-    this.userRegistration.create(model)
+    this.registrationService.create(model);
    }
 
   // TODO: Remove this when we're done
