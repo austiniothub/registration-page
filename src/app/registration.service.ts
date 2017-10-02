@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http'; 
 
-import { UserRegistration, UserRegistrationContract } from './UserRegistration';
+import { UserRegistration, Info } from './UserRegistration';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -11,20 +11,17 @@ export class RegistrationService {
 
   constructor(public http: Http) { }
 
-  create(userRegistration: UserRegistration){
-  	const userRegistrationContract = this.convertToContract(userRegistration)
+  create(userRegistration: any){
+	  const userRegistrationContract = this.convertToContract(userRegistration)
+	  console.log(userRegistrationContract)
   	return this.http.post(this.registrationUrl, userRegistrationContract);
   }
 
-  convertToContract (userRegistration: UserRegistration){
-  	const contract = new UserRegistrationContract();
-  	contract.Email = userRegistration.Email;
-  	contract.info.lastName = userRegistration.lastName;
-  	contract.info.address = userRegistration.address;
-  	contract.info.familyMembers = userRegistration.familyMembers;
-  	contract.info.firstName = userRegistration.firstName;
+  convertToContract (userRegistration: any){
+	const info = new Info(userRegistration.firstName, userRegistration.lastName, userRegistration.address, userRegistration.familyMembers, userRegistration.phoneNumber);
+	const user = new UserRegistration(userRegistration.email, info)
 
-  	return contract;
+  	return user;
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserRegistration }    from '../UserRegistration';
+import { UserRegistration,Info }    from '../UserRegistration';
 import { RegistrationService } from '../registration.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class FormComponent {
   constructor(private registrationService: RegistrationService) { }
 
   ngOnInit() {
-    this.model = new UserRegistration('john@gmail.com', 'John', 'Smith', '2400 Nueces St., Austin, TX 78705', 4, 8324449876);
+    this.model = new UserRegistration('john@gmail.com', new Info('', 'Smith', '2400 Nueces St., Austin, TX 78705', 4, 8324449876));
+    console.log(this.model);
     this.submitted = false;
   }
 
