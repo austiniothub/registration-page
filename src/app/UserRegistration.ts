@@ -1,7 +1,7 @@
 export class UserRegistration {
 
   constructor(
-    public email: string,
+    public Email: string,
     public info: Info,
   ) {  }
 

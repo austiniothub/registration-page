@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
 import { UserRegistration,Info }    from '../UserRegistration';
 import { RegistrationService } from '../registration.service';
 
@@ -14,16 +14,12 @@ export class FormComponent {
   constructor(private registrationService: RegistrationService) { }
 
   ngOnInit() {
-    this.model = new UserRegistration('john@gmail.com', new Info('', 'Smith', '2400 Nueces St., Austin, TX 78705', 4, 8324449876));
-    console.log(this.model);
     this.submitted = false;
   }
 
   onSubmit() { this.submitted = true;
+    console.log(this.model);
     this.registrationService.create(this.model);
    }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
 
 }

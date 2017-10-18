@@ -3,68 +3,81 @@
     <h4>Please submit the form below to register your button.</h4>
     {{diagnostic}}
     <form #form ="ngForm" (ngSubmit)="onSubmit()">
- 
+
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" required
-        [(ngModel)]="model.firstName" name="firstName" #first="ngModel">
-      </div>
-      <div [hidden]="first.valid || first.pristine"
-        class="alert alert-danger">
-        First Name is required
+        <input type="text" 
+          class="form-control" 
+          id="firstName" 
+          required
+          [(ngModel)]="model.firstName"
+          name="firstName" 
+          #first="ngModel">
       </div>
  
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" required
-        [(ngModel)]="model.lastName" name="lastName" #last="ngModel">
-      </div>
-      <div [hidden]="last.valid || last.pristine"
-        class="alert alert-danger">
-        Last Name is required
+        <input 
+          type="text" 
+          class="form-control" 
+          id="lastName" required
+          ngModel 
+          [(ngModel)]="model.lastName"
+          #last="ngModel">
       </div>
       
       <div class="form-group">
         <label for="Email">Email Address</label>
-        <input type="text" class="form-control" id="Email" required
-        [(ngModel)]="model.Email" name="Email" #Email="ngModel">
-      </div>
-      <div [hidden]="Email.valid || Email.pristine"
-        class="alert alert-danger">
-        Email Address is required
+        <input 
+          type="text" 
+          class="form-control" 
+          id="Email" required
+          [(ngModel)]="model.Email"
+          name="Email" 
+          #Email="ngModel">
       </div>
 
       <div class="form-group">
         <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" required
-        [(ngModel)]="model.address" name="address" #address="ngModel">
-      </div>
-      <div [hidden]="address.valid || address.pristine"
-        class="alert alert-danger">
-        Address is required
+        <input 
+          type="text" 
+          class="form-control" 
+          id="address" 
+          required
+          [(ngModel)]="model.address"
+          name="address" 
+          #address="ngModel">
       </div>
  
       <div class="form-group">
         <label for="familyMembers">Number of Family Members</label>
-        <input type="number" class="form-control" id="familyMembers" required pattern="^[1-9]+[0-9]*$"
-        [(ngModel)]="model.familyMembers" name="familyMembers" #family="ngModel">
-      </div>
-      <div [hidden]="family.valid || family.pristine"
-        class="alert alert-danger">
-        Number of Family Members is required
+        <input 
+          type="number" 
+          class="form-control" 
+          id="familyMembers" 
+          required pattern="^[1-9]+[0-9]*$"
+          [(ngModel)]="model.familyMembers"
+          name="familyMembers" 
+          #family="ngModel">
       </div>
 
       <div class="form-group">
         <label for="phoneNumber">Phone Number</label>
-        <input type="number" class="form-control" id="phoneNumber" required pattern="^[1-9]+[0-9]*$"
-        [(ngModel)]="model.phoneNumber" name="phoneNumber" #phone="ngModel">
+        <input 
+          type="number" 
+          class="form-control" 
+          id="phoneNumber" 
+          required pattern="^[1-9]+[0-9]*$"
+          [(ngModel)]="model.phoneNumber"
+          name="phoneNumber" 
+          #phone="ngModel">
       </div>
       <div [hidden]="phone.valid || phone.pristine"
         class="alert alert-danger">
         Phone Number is required
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!form.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!form.form.valid" form.reset()>Submit</button>
  
     </form>
 </div>

@@ -19,7 +19,7 @@ export class RegistrationService {
 
   convertToContract (userRegistration: any){
 	const info = new Info(userRegistration.firstName, userRegistration.lastName, userRegistration.address, userRegistration.familyMembers, userRegistration.phoneNumber);
-	const user = new UserRegistration(userRegistration.email, info)
+	const user = new UserRegistration(userRegistration.Email, info)
 
   	return user;
   }
